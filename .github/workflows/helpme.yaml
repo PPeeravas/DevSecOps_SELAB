@@ -46,7 +46,7 @@ jobs:
           head: HEAD
           # TODO#3: add extra_args flag to report ONLY VERIFIED secrets (reduce noise)
           # extra_args: ???
-          extra_args: --result=verified
+          extra_args: --results=verified
 
       # Gitleaks scans code + history for regex patterns that look like secrets. It can be more accurate than TruffleHog, but may miss live creds that don't match known patterns.
       # TODO#4: add Gitleaks step below.
@@ -220,7 +220,7 @@ jobs:
       - name: Upload Trivy Sarif
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: trivy-result.sarif
+          sarif_file: trivy-results.sarif
           category: trivy
 
           # TODO#21: upload trivy-results.sarif as workflow artifact
